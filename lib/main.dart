@@ -7,6 +7,7 @@ import 'Buyer/chat_page.dart';
 import 'Buyer/chat_provider.dart';
 import 'Buyer/chat_list_page.dart';
 import 'seller/00home/pages/home.dart';
+import 'Signin-up/sign_in_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,8 +26,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/chooseRole',
+        initialRoute: '/signIn',
         routes: {
+          '/signIn': (context) => SignInScreen(),
           '/chooseRole': (context) => ChooseRolePage(),
           '/buyer': (context) => ItemSelectionPage(),
           '/seller': (context) => HomeScreen(),

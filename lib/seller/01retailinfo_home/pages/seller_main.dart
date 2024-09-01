@@ -12,7 +12,7 @@ class SellerMain extends StatefulWidget {
 
 class _SellerMainState extends State<SellerMain> {
   List<Map<String, String>> buyers = [
-    {'name': 'Suraj', 'imgpath': 'assets/man1.jpeg', 'desc': 'Retails in vegetables'},
+    {'name': 'Suraj', 'imgpath': 'assets/man1.jpeg', 'desc': 'Retails in vegies'},
     {'name': 'Ram', 'imgpath': 'assets/man2.jpeg', 'desc': 'Retails in fruits'},
     {'name': 'Rakesh', 'imgpath': 'assets/man3.jpeg', 'desc': 'Retails in millets'},
     {'name': 'Chandan', 'imgpath': 'assets/man4.jpeg', 'desc': 'Retails in cereals'},
@@ -56,6 +56,7 @@ class _SellerMainState extends State<SellerMain> {
         backgroundColor: Colors.white,
         drawer: const Navigation(),
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 76, 222, 230),
           elevation: 5,
           title: const Text('Seller Dashboard'),
           centerTitle: true,
@@ -87,7 +88,7 @@ class _SellerMainState extends State<SellerMain> {
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                       color: bluebg,
-                      height: screenHeight * 0.25,
+                      height: screenHeight * 0.3,
                       width: screenWidth,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +119,7 @@ class _SellerMainState extends State<SellerMain> {
                                 controller: controller,
                                 padding:
                                     const WidgetStatePropertyAll<EdgeInsets>(
-                                        EdgeInsets.symmetric(horizontal: 16.0)),
+                                        EdgeInsets.symmetric(horizontal: 16.0 )),
                                 onTap: () {},
                                 onChanged: (query) {
                                   filterSearchResults(query);

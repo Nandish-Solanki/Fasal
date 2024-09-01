@@ -30,7 +30,7 @@ class _BuyercardState extends State<Buyercard> {
     double screenWidth = MediaQuery.of(context).size.width;
     //double screenText = screenWidth * 0.05;
     TextStyle txtstyle=TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
-    TextStyle buyercardtext=TextStyle(color: const Color.fromARGB(255, 40, 39, 39), fontSize: 20, fontWeight: FontWeight.bold);
+    TextStyle buyercardtext=TextStyle(color: const Color.fromARGB(255, 40, 39, 39), fontSize: 20);
 
 
     void _showBuyerInfo(){
@@ -60,7 +60,7 @@ class _BuyercardState extends State<Buyercard> {
                     SizedBox(height: 10,),
                     Text(widget.rname, style: buyercardtext,),
                     Divider(thickness: 3,),
-                    Text(widget.rdesc, style: buyercardtext,),
+                    Text(widget.rdesc, style: buyercardtext.copyWith(fontWeight: FontWeight.bold),),
                     SizedBox(height: 15,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
