@@ -80,22 +80,27 @@ class _ChatPageState extends State<ChatPage> {
                   padding: _getPadding(message),
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue, // Background color
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12), // Rounded corners
+                    child: Row(
+                      children: [
+                        Expanded(child: Text("message")),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue, // Background color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12), // Rounded corners
+                            ),
+                            elevation: 5, // Shadow effect
+                            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Padding inside button
+                          ),
+                          onPressed: () {
+                            // Optional: Handle button press
+                          },
+                          child: Text(
+                            message,
+                            style: TextStyle(color: Colors.white), // Text color
+                          ),
                         ),
-                        elevation: 5, // Shadow effect
-                        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Padding inside button
-                      ),
-                      onPressed: () {
-                        // Optional: Handle button press
-                      },
-                      child: Text(
-                        message,
-                        style: TextStyle(color: Colors.white), // Text color
-                      ),
+                      ],
                     ),
                   ),
                 );
