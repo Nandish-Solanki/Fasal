@@ -123,12 +123,12 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        backgroundColor: Color(0xFF83DCE2),
+        backgroundColor: const Color(0xFF83DCE2),
         leading: IconButton(
-          icon: Icon(Icons.filter_list_sharp, color: Colors.black),
+          icon: const Icon(Icons.filter_list_sharp, color: Colors.black),
           onPressed: () {},
         ),
-        title: Center(
+        title: const Center(
           child: Text(
             "FASAL",
             style: TextStyle(
@@ -140,13 +140,13 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
         ),
         actions: [
           Container(
-            padding: EdgeInsets.all(10.0),
-            margin: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.all(10.0),
+            margin: const EdgeInsets.only(right: 16.0),
             decoration: BoxDecoration(
-              color: Color(0xFF157D84),
+              color: const Color(0xFF157D84),
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.notifications,
               color: Colors.white,
               size: 30,
@@ -157,7 +157,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
       body: Column(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFF83DCE2),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
@@ -166,11 +166,11 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
             ),
             width: double.infinity,
             height: MediaQuery.of(context).size.height * 0.34,
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -183,7 +183,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                     ),
                   ],
                 ),
-                Text(
+                const Text(
                   "Let's get you your crops",
                   style: TextStyle(
                     color: Colors.white,
@@ -191,12 +191,12 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 TextField(
                   onChanged: _filterCrops,
                   decoration: InputDecoration(
                     hintText: 'Search here...',
-                    prefixIcon: Icon(Icons.search_rounded),
+                    prefixIcon: const Icon(Icons.search_rounded),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
@@ -217,7 +217,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                 return GestureDetector(
                   onTap: () => _selectCrop(crop['name']!),
                   child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: Card(
                       elevation: 5,
                       child: Padding(
@@ -231,32 +231,32 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                               width: 80,
                               fit: BoxFit.cover,
                             ),
-                            SizedBox(width: 15),
+                            const SizedBox(width: 15),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     crop['name']!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Text(
                                     crop['description']!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 14,
                                     ),
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Row(
                                     children: [
                                       Icon(Icons.star, color: Colors.yellow.shade900, size: 16),
                                       Text(
                                         ' ${crop['rating']}',
-                                        style: TextStyle(fontSize: 14),
+                                        style: const TextStyle(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -275,7 +275,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -290,7 +290,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFF83DCE2),
+        selectedItemColor: const Color(0xFF83DCE2),
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
