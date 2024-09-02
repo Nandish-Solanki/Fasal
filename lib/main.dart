@@ -1,6 +1,7 @@
 // import 'package:fasal/Signin-up/sign_in_screen.dart';
 // import 'package:fasal/Signin-up/sign_up_screen.dart';
 import 'package:fasal/seller/00home/pages/home.dart';
+import 'package:fasal/splashscreen/Screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,8 +35,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/signIn',
+        initialRoute: '/splashscreen',
         routes: {
+          '/splashscreen':(context)=>SplashScreen(),
           '/signIn': (context) => SignInScreen(),
           '/signUp': (context) => SignUpScreen(),
           '/chooseRole': (context) => ChooseRolePage(),
@@ -73,6 +75,8 @@ class ChooseRolePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF83DCE2),
+        
         title: Text('Choose Your Role'),
       ),
       body: Center(
@@ -80,16 +84,23 @@ class ChooseRolePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color(0xFF83DCE2)),
+              ),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/buyer');
               },
-              child: Text('Buyer'),
+              child: Text('Retailer', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black),),
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color(0xFF83DCE2)),
+              ),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/seller');
               },
-              child: Text('Seller'),
+              child: Text('Farmer',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black)),
             ),
           ],
         ),
