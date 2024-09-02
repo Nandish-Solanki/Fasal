@@ -29,7 +29,7 @@ class RoleSelectionPage extends StatelessWidget {
                 );
               },
               child: Text(
-                'I am a Seller',
+                'I am a Farmer',
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
@@ -46,7 +46,7 @@ class RoleSelectionPage extends StatelessWidget {
                 );
               },
               child: Text(
-                'I am a Buyer',
+                'I am a Retailer',
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),

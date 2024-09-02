@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../payment/payment.dart';
 import 'chat_provider.dart'; // Import the ChatProvider
 
 class ChatPage extends StatefulWidget {
@@ -115,9 +116,20 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: _sendMessage,
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PaymentScreen()));
+                      }, 
+                      icon: Icon(Icons.payments_sharp)),
+                    IconButton(
+                      icon: Icon(Icons.send),
+                      onPressed: _sendMessage,
+                    ),
+                  ],
                 ),
               ],
             ),
