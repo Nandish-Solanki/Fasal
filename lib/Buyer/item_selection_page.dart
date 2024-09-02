@@ -1,3 +1,4 @@
+import 'package:fasal/buyer/navigationdrawer.dart'; 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'item_provider.dart'; // Import the ItemProvider
@@ -120,14 +121,16 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
+      drawer: const Navigation(),
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: const Color(0xFF83DCE2),
-        leading: IconButton(
-          icon: const Icon(Icons.filter_list_sharp, color: Colors.black),
-          onPressed: () {},
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.filter_list_sharp, color: Colors.black),
+        //   onPressed: () {},
+        // ),
         title: const Center(
           child: Text(
             "FASAL",
@@ -294,6 +297,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
+    ),
     );
   }
 }
