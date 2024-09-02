@@ -33,7 +33,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         'key': 'rzp_test_QuCbsq1kJTOrdW',
         'amount': 12000, // in paise (e.g., 12000 paise = 120 INR)
         'currency': 'INR',
-        'name': 'MOJO PIZZA',
+        'name': 'Shyamlal',
         'description': 'Flutter Pay',
         'timeout': 60, // in seconds
         'prefill': {'contact': '8851119444', 'email': 'tgoel029@gmail.com'}
@@ -67,12 +67,43 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Payment"),
+        backgroundColor: Colors.white,
+        title: Text("Payment Gateway"),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: openCheckout,
-          child: Text("Pay Now"),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 205,
+            ),
+            Text(
+              "Pay With Razorpay",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF83DCE2),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0), // Rounded corners
+                ),
+              ),
+              onPressed: openCheckout,
+              child: const Text(
+                "Pay Now",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

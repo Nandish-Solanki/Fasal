@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../payment/payment.dart';
 import 'chat_provider.dart'; // Import the ChatProvider
 
 class ChatPage extends StatefulWidget {
@@ -80,27 +81,22 @@ class _ChatPageState extends State<ChatPage> {
                   padding: _getPadding(message),
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Row(
-                      children: [
-                        Expanded(child: Text("message")),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue, // Background color
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12), // Rounded corners
-                            ),
-                            elevation: 5, // Shadow effect
-                            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Padding inside button
-                          ),
-                          onPressed: () {
-                            // Optional: Handle button press
-                          },
-                          child: Text(
-                            message,
-                            style: TextStyle(color: Colors.white), // Text color
-                          ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue, // Background color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12), // Rounded corners
                         ),
-                      ],
+                        elevation: 5, // Shadow effect
+                        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Padding inside button
+                      ),
+                      onPressed: () {
+                        // Optional: Handle button press
+                      },
+                      child: Text(
+                        message,
+                        style: TextStyle(color: Colors.white), // Text color
+                      ),
                     ),
                   ),
                 );
@@ -120,9 +116,20 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: _sendMessage,
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PaymentScreen()));
+                      }, 
+                      icon: Icon(Icons.payments_sharp)),
+                    IconButton(
+                      icon: Icon(Icons.send),
+                      onPressed: _sendMessage,
+                    ),
+                  ],
                 ),
               ],
             ),
