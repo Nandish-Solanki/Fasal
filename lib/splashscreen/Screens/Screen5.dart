@@ -1,4 +1,5 @@
-import 'package:fasal/signin.dart';
+import 'package:fasal/firebase/signin.dart';
+// import 'package:fasal/signin.dart';
 import 'package:flutter/material.dart';
 import '../Widget/Background.dart';
 import '../Widget/Screen.dart';
@@ -11,7 +12,7 @@ class Screen5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Screen(
       screenNumber: 5,
-      nextScreen: SignInScreen(), 
+      nextScreen: AuthPage(), 
       backScreen: Screen4(),
       backgroundColor: const Color.fromARGB(255, 184, 248, 201),
       bubbles: [

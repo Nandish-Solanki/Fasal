@@ -1,4 +1,5 @@
-import 'package:fasal/signin.dart';
+// import 'package:fasal/signin.dart';
+import 'package:fasal/firebase/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -133,7 +134,7 @@ class _NavigationState extends State<Navigation> {
                         Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignInScreen(),  // Replace with your SignIn screen
+                          builder: (context) => AuthPage(),  // Replace with your SignIn screen
                         ),
                       );
                       },

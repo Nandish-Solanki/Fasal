@@ -4,6 +4,46 @@ import 'package:flutter/material.dart';
 // import 'home.dart'; // Your existing seller home screen
 // import 'item_selection_page.dart'; // Your existing buyer item selection page
 
+// Define the ChooseRolePage widget
+class ChooseRolePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF83DCE2),
+        
+        title: const Text('Choose Your Role'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(const Color(0xFF83DCE2)),
+              ),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/buyer');
+              },
+              child: const Text('Retailer', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black),),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(const Color(0xFF83DCE2)),
+              ),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/seller');
+              },
+              child: const Text('Farmer',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class RoleSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

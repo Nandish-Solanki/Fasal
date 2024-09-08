@@ -1,9 +1,9 @@
-// import 'package:fasal/Signin-up/sign_in_screen.dart';
-// import 'package:fasal/Signin-up/sign_up_screen.dart';
+import 'package:fasal/Selection_page.dart';
 import 'package:fasal/seller/00home/pages/home.dart';
 import 'package:fasal/splashscreen/Screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // Import your providers and screens
 import 'Buyer/item_provider.dart';
@@ -12,16 +12,17 @@ import 'Buyer/seller_list_page.dart';
 import 'Buyer/chat_page.dart';
 import 'Buyer/chat_provider.dart';
 import 'Buyer/chat_list_page.dart';
-// import 'seller/home/pages/home.dart';
-import 'package:fasal/signin.dart';
+import 'package:fasal/firebase/signin.dart'; // For authentication
 
+// Import the combined sign-in and sign-up page
+// import 'Signin-up/auth_page.dart'; // Make sure this is the correct path for your file
 
-// Define the main function
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-// Define the main app widget
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,15 +38,13 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/splashscreen',
         routes: {
-          '/splashscreen':(context)=>SplashScreen(),
-          '/signIn': (context) => SignInScreen(),
-          '/signUp': (context) => SignUpScreen(),
+          '/splashscreen': (context) => const SplashScreen(),
+          '/auth': (context) => AuthPage(), // Replace signIn and signUp with the combined auth page
           '/chooseRole': (context) => ChooseRolePage(),
           '/buyer': (context) => ItemSelectionPage(),
-          '/seller': (context) => HomeScreen(),
+          '/seller': (context) => const HomeScreen(),
           '/sellerList': (context) => SellerListPage(),
           '/chatList': (context) => ChatListPage(),
-          '/signInn': (context) => SignInScreen(), // Ensure this is correct or remove if redundant
           '/chat': (context) {
             final sellerName = ModalRoute.of(context)!.settings.arguments as String;
             return ChatPage(
@@ -69,55 +68,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Define the ChooseRolePage widget
-class ChooseRolePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF83DCE2),
-        
-        title: Text('Choose Your Role'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color(0xFF83DCE2)),
-              ),
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/buyer');
-              },
-              child: Text('Retailer', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black),),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color(0xFF83DCE2)),
-              ),
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/seller');
-              },
-              child: Text('Farmer',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.black)),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 // Define the SettingsPage widget
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Settings Page'),
       ),
     );

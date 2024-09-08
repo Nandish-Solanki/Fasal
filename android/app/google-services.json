@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1094437880141",
+    "project_id": "fasal-9d1fb",
+    "storage_bucket": "fasal-9d1fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094437880141:android:d3f65405600241b498f704",
+        "android_client_info": {
+          "package_name": "com.example.fasal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094437880141-bj8v35fnppjj1dd7qq30l4rfjaaknqv3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fasal",
+            "certificate_hash": "3df56427b2842ceb99a80314dbd722ec4377ff28"
+          }
+        },
+        {
+          "client_id": "1094437880141-0mvtj8a1r6kaefrq6et6fe2nbtu8qips.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApDkJ1K1TaYWo408lu-6R-35OZNUWgsMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094437880141-0mvtj8a1r6kaefrq6et6fe2nbtu8qips.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1094437880141-5cljlpinthp7js035nk2nbmkq9h810f6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fasal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
