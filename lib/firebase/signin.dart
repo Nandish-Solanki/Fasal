@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fasal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 // Firebase Auth Class
 class Auth {
@@ -244,3 +247,34 @@ class Bluebutton extends StatelessWidget {
     );
   }
 }
+// class Signin extends StatefulWidget {
+//   const Signin({super.key});
+
+//   @override
+//   State<Signin> createState() => _SigninState();
+// }
+
+// class _SigninState extends State<Signin> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             SignInButton(
+//               Buttons.googleDark, onPressed: (){
+
+//             },text: 'signingooglebutton'.tr(),),
+//              SignInButton(
+//               Buttons.facebook, onPressed: (){
+
+//             },text: 'signinfacebookbutton'.tr(),),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+

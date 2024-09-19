@@ -26,7 +26,7 @@ class _BuyercardState extends State<Buyercard> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    
+
     TextStyle txtstyle = TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
     TextStyle buyercardtext = TextStyle(color: const Color.fromARGB(255, 40, 39, 39), fontSize: 20);
 
@@ -39,7 +39,7 @@ class _BuyercardState extends State<Buyercard> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Buyer Details', style: txtstyle,),
+                Text('Buyer Details', style: txtstyle),
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -54,28 +54,39 @@ class _BuyercardState extends State<Buyercard> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Image.asset(widget.imgpath),
-                    SizedBox(height: 10,),
-                    Text(widget.rname, style: buyercardtext,),
-                    Divider(thickness: 3,),
-                    Text(widget.rdesc, style: buyercardtext.copyWith(fontWeight: FontWeight.bold),),
-                    SizedBox(height: 15,),
+                    // Constrain the image size to prevent overflow
+                    AspectRatio(
+                      aspectRatio: 1.0,  // Maintain a square aspect ratio
+                      child: Image.asset(
+                        widget.imgpath,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(widget.rname, style: buyercardtext),
+                    Divider(thickness: 3),
+                    Text(widget.rdesc, style: buyercardtext.copyWith(fontWeight: FontWeight.bold)),
+                    SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(width: 15,),
-                        Icon(Icons.location_on, color: Colors.red,),
-                        SizedBox(width: 15,),
-                        Text("Location", style: buyercardtext,),
+                        SizedBox(width: 15),
+                        Icon(Icons.location_on, color: Colors.red),
+                        SizedBox(width: 15),
+                        Flexible(
+                          child: Text("Location", style: buyercardtext), // Use Flexible to manage long texts
+                        ),
                       ],
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 15),
                     Row(
                       children: [
-                        SizedBox(width: 15,),
-                        Icon(Icons.phone, color: Colors.grey[850],),
-                        SizedBox(width: 15,),
-                        Text("Contact Info", style: buyercardtext,),
+                        SizedBox(width: 15),
+                        Icon(Icons.phone, color: Colors.grey[850]),
+                        SizedBox(width: 15),
+                        Flexible(
+                          child: Text("Contact Info", style: buyercardtext),
+                        ),
                       ],
                     ),
                   ],
@@ -104,7 +115,7 @@ class _BuyercardState extends State<Buyercard> {
               ),
             ],
           );
-        }
+        },
       );
     }
 
@@ -121,25 +132,35 @@ class _BuyercardState extends State<Buyercard> {
               height: screenHeight * 0.15,
               width: screenWidth,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(widget.imgpath),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(widget.rname, style: buyercardtext,),
-                      Text(widget.rdesc, style: buyercardtext,),
-                      Row(
-                        children: [
-                          Icon(Icons.star, color: Colors.yellow[600],),
-                          Text(" ${widget.rating}/5", style: buyercardtext.copyWith(fontSize: 15),)
-                        ],
+                  // Constrain the size of the image using a SizedBox with specific dimensions
+                  SizedBox(
+                    width: screenWidth * 0.25,  // Limit the image width
+                    height: screenHeight * 0.12,  // Limit the image height
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.asset(
+                        widget.imgpath,
+                        fit: BoxFit.cover,
                       ),
-                    ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(  // Wrap the column in an Expanded to avoid overflow
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(widget.rname, style: buyercardtext, overflow: TextOverflow.ellipsis),
+                        Text(widget.rdesc, style: buyercardtext, overflow: TextOverflow.ellipsis),
+                        Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.yellow[600]),
+                            Text(" ${widget.rating}/5", style: buyercardtext.copyWith(fontSize: 15)),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

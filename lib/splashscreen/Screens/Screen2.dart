@@ -32,7 +32,7 @@ class Screen2 extends StatelessWidget {
       textSize: MediaQuery.of(context).size.width*0.08,
       startOffset: Offset(1.0, 1.0), 
       endOffset: Offset(-0.01, 0.5), 
-      finalOffset: Offset(-0.01, 0.5),
+      finalOffset: Offset(-0.01, 0.5), child: null,
     );
   }
 }

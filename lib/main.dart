@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fasal/Selection_page.dart';
 import 'package:fasal/seller/00home/pages/home.dart';
 import 'package:fasal/splashscreen/Screens/SplashScreen.dart';
@@ -18,12 +19,23 @@ import 'package:fasal/firebase/signin.dart'; // For authentication
 // import 'Signin-up/auth_page.dart'; // Make sure this is the correct path for your file
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(EasyLocalization(
+    path: 'assets/language',
+    supportedLocales: [Locale('en'),Locale('hi')],
+    child: MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -32,6 +44,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ChatProvider()),
       ],
       child: MaterialApp(
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        localizationsDelegates: context.localizationDelegates,
         title: 'FASAL',
         theme: ThemeData(
           primarySwatch: Colors.blue,

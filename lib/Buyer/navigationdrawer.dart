@@ -1,4 +1,3 @@
-// import 'package:fasal/signin.dart';
 import 'package:fasal/firebase/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -13,9 +12,9 @@ class Navigation extends StatefulWidget {
 
 class _NavigationState extends State<Navigation> {
   String? currentLocation;
-   String _locationMessage = "Fetching location...";
+  String _locationMessage = "Fetching location...";
 
-    @override
+  @override
   void initState() {
     super.initState();
     _determinePosition();
@@ -83,20 +82,25 @@ class _NavigationState extends State<Navigation> {
             const SizedBox(height: 20),
             Text("Retailer's Name", style: txtstyle),
             const SizedBox(height: 10),
-            
-            // Display current location
+
+            // Display current location with scrolling
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.location_on, color: Colors.red, size: 24),  // Location icon
                 const SizedBox(width: 8),
-                Text(
-                  _locationMessage,
-                  style: TextStyle(color: Colors.grey[700], fontSize: 16),
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,  // Make the text scrollable horizontally
+                    child: Text(
+                      _locationMessage,
+                      style: TextStyle(color: Colors.grey[700], fontSize: 16),
+                    ),
+                  ),
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 10),
             const Divider(thickness: 1.5),
             Column(

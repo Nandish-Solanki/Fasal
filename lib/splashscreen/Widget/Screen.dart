@@ -32,7 +32,7 @@ class Screen extends StatelessWidget {
     required this.textSize,
     required this.startOffset,
     required this.endOffset,
-    required this.finalOffset,
+    required this.finalOffset, required child,
    
   });
 
